@@ -5,36 +5,75 @@
     <title>Video Player CDN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            display: flex;
-            justify-content: center;
-            margin: 10px 0;
-            position: sticky;
-            z-index: 10;
-        }
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 700px;
-            margin: auto;
-            padding-top: 71.43% /* 7:5 */
-        }
-        .video-container video,
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <style>
+    :root {
+      --primary-bg: #09090b;
+      --header-bg: #191a1f;
+      --card-bg: #18181b;
+      --border-color: #232329;
+      --footer-bg: #18181e;
+      --accent: #ffd900;
+      --text-main: #ffffff;
+      --text-footer: #a1a1aa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: "Poppins", Arial, sans-serif;
+      background: var(--primary-bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #18181b, #09090b);
+      text-align: center;
+      padding: 18px 12px 14px 12px;
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px 10px;
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    video {
+      width: 80%;
+      border-radius: 12px;
+      background: #000;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      border: 1px solid var(--border-color);
+      outline: none;
+    }
+
+    footer {
+      background: linear-gradient(to bottom, #18181b, #09090b);
+      text-align: center;
+      padding: 15px 0;
+      font-size: 0.9rem;
+      color: var(--text-footer);
+      border-top: 1px solid var(--border-color);
+    }
+  </style>
 </head>
 <body>
     <header>
@@ -50,8 +89,8 @@
         <script src="https://braceslinear.com/e3390cf0a8cdf953ded85bdaaf3046a5/invoke.js"></script>
     </header>
 
-    <div class="video-container">
-        <video controls autoplay playsinline controlslist="nofullscreen nodownload noremoteplayback" disablepictureinpicture preload="metadata">
+  <div class="container">
+    <video controls muted playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture>
                 <source src="https://cdn.videy.co/yHNR4Ycp1.mp4" type="video/mp4">
             </video>
         </div>
@@ -102,3 +141,4 @@ hs.src = ('//s10.histats.com/js15_as.js');
 
 </body>
 </html>
+
